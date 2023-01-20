@@ -248,8 +248,8 @@
 \newenvironment{sidepic}[2]{% Args: image, frame title
   \begingroup
   \setbeamertemplate{background}{%
-  \hspace*{0.6\paperwidth}%
-  \includegraphics[height=\paperheight]{#1}%
+    \hspace*{0.6\paperwidth}% 
+      %\includegraphics[width=0.45\textwidth,keepaspectratio]{#1}%
   }
   \setbeamertemplate{frametitle}{% Same as normal, but with right skip
     \vspace*{-3.5ex}
@@ -257,10 +257,15 @@
       \usebeamerfont{frametitle}\insertframetitle\\
       \usebeamerfont{framesubtitle}\insertframesubtitle
     \end{beamercolorbox}
+    \begin{beamercolorbox}[leftskip=0.5\paperwidth,rightskip=\paperwidth]{frametitle}%
+	\includegraphics[width=0.4\paperwidth,keepaspectratio]{#1}%
+	\end{beamercolorbox}   
+	 %\hspace*{0.6\paperwidth}
   }
   \begin{frame}{#2}
+  	    \vspace*{-2in}
   \minipage{0.6\textwidth}%
-}{%
+       }{%
   \endminipage
   \end{frame}
   \endgroup
